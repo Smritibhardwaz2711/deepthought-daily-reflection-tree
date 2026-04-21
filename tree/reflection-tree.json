@@ -1,0 +1,266 @@
+{
+    "meta": {
+      "title": "DeepThought Daily Reflection Tree",
+      "version": "3.0",
+      "description": "Deterministic reflection tree with explicit decision nodes, signals, and dynamic summaries."
+    },
+  
+    "start": "START",
+  
+    "nodes": [
+  
+      {
+        "id": "START",
+        "type": "start",
+        "text": "Good evening. A few honest minutes now can improve tomorrow.",
+        "next": "Q1"
+      },
+  
+      {
+        "id": "Q1",
+        "type": "question",
+        "axis": "axis1",
+        "text": "When you replay today in your head, what feeling arrives first?",
+        "options": [
+          {"label": "Satisfaction", "next": "Q2_HIGH", "signal": "internal"},
+          {"label": "Pride", "next": "Q2_HIGH", "signal": "internal"},
+          {"label": "Tension", "next": "Q2_LOW", "signal": "external"},
+          {"label": "Relief", "next": "Q2_LOW", "signal": "external"}
+        ]
+      },
+  
+      {
+        "id": "Q2_HIGH",
+        "type": "question",
+        "axis": "axis1",
+        "text": "What most influenced the better moments today?",
+        "options": [
+          {"label": "I prepared early", "next": "Q3A", "signal": "internal"},
+          {"label": "I adapted quickly", "next": "Q3A", "signal": "internal"},
+          {"label": "Others carried it", "next": "Q3A", "signal": "external"},
+          {"label": "Luck helped", "next": "Q3A", "signal": "external"}
+        ]
+      },
+  
+      {
+        "id": "Q2_LOW",
+        "type": "question",
+        "axis": "axis1",
+        "text": "When the day became difficult, what happened first inside you?",
+        "options": [
+          {"label": "I searched for what I could control", "next": "Q3B", "signal": "internal"},
+          {"label": "I pushed forward anyway", "next": "Q3B", "signal": "internal"},
+          {"label": "I felt stuck", "next": "Q3B", "signal": "external"},
+          {"label": "I waited for someone else", "next": "Q3B", "signal": "external"}
+        ]
+      },
+  
+      {
+        "id": "Q3A",
+        "type": "question",
+        "axis": "axis1",
+        "text": "Which sentence feels most true tonight?",
+        "options": [
+          {"label": "My choices mattered today", "next": "D1", "signal": "internal"},
+          {"label": "Today mostly happened to me", "next": "D1", "signal": "external"},
+          {"label": "Both are true", "next": "D1", "signal": "internal"}
+        ]
+      },
+  
+      {
+        "id": "Q3B",
+        "type": "question",
+        "axis": "axis1",
+        "text": "Looking back now, where was your smallest point of choice?",
+        "options": [
+          {"label": "My response", "next": "D1", "signal": "internal"},
+          {"label": "My effort level", "next": "D1", "signal": "internal"},
+          {"label": "There wasn't one", "next": "D1", "signal": "external"}
+        ]
+      },
+  
+      {
+        "id": "D1",
+        "type": "decision",
+        "logic": "if internal >= external then R1_INT else R1_EXT"
+      },
+  
+      {
+        "id": "R1_INT",
+        "type": "reflection",
+        "text": "You noticed your hand in the day. Agency is rarely total control. It is influence used well.",
+        "next": "B1"
+      },
+  
+      {
+        "id": "R1_EXT",
+        "type": "reflection",
+        "text": "Hard days make outside forces feel louder. Fair enough. But even today, some response belonged to you.",
+        "next": "B1"
+      },
+  
+      {
+        "id": "B1",
+        "type": "bridge",
+        "text": "Now we shift from what happened to you, to what moved through you.",
+        "next": "Q4"
+      },
+  
+      {
+        "id": "Q4",
+        "type": "question",
+        "axis": "axis2",
+        "text": "Which moment best describes you today?",
+        "options": [
+          {"label": "I helped without being asked", "next": "Q5", "signal": "contribution"},
+          {"label": "I improved something quietly", "next": "Q5", "signal": "contribution"},
+          {"label": "I wanted more recognition", "next": "Q5", "signal": "entitlement"},
+          {"label": "I noticed others falling short", "next": "Q5", "signal": "entitlement"}
+        ]
+      },
+  
+      {
+        "id": "Q5",
+        "type": "question",
+        "axis": "axis2",
+        "text": "What felt most important by the end of the day?",
+        "options": [
+          {"label": "Work got better", "next": "Q6", "signal": "contribution"},
+          {"label": "People were supported", "next": "Q6", "signal": "contribution"},
+          {"label": "My effort was seen", "next": "Q6", "signal": "entitlement"},
+          {"label": "Credit was fair", "next": "Q6", "signal": "entitlement"}
+        ]
+      },
+  
+      {
+        "id": "Q6",
+        "type": "question",
+        "axis": "axis2",
+        "text": "Which truth is hardest to remember on busy days?",
+        "options": [
+          {"label": "Contribution compounds", "next": "D2", "signal": "contribution"},
+          {"label": "Recognition comes slower than effort", "next": "D2", "signal": "contribution"},
+          {"label": "If unseen, it doesn't count", "next": "D2", "signal": "entitlement"}
+        ]
+      },
+  
+      {
+        "id": "D2",
+        "type": "decision",
+        "logic": "if contribution >= entitlement then R2_CONTRIB else R2_ENT"
+      },
+  
+      {
+        "id": "R2_CONTRIB",
+        "type": "reflection",
+        "text": "You leaned toward contribution today. Influence often grows quietly before it becomes visible.",
+        "next": "B2"
+      },
+  
+      {
+        "id": "R2_ENT",
+        "type": "reflection",
+        "text": "Wanting fairness is human. But when recognition becomes fuel, your energy depends on others.",
+        "next": "B2"
+      },
+  
+      {
+        "id": "B2",
+        "type": "bridge",
+        "text": "Last lens. We move from me, to us.",
+        "next": "Q7"
+      },
+  
+      {
+        "id": "Q7",
+        "type": "question",
+        "axis": "axis3",
+        "text": "When you think about today's hardest moment, who appears first?",
+        "options": [
+          {"label": "Only me", "next": "Q8", "signal": "self"},
+          {"label": "My team", "next": "Q8", "signal": "others"},
+          {"label": "A colleague under pressure", "next": "Q8", "signal": "others"},
+          {"label": "The customer we serve", "next": "Q8", "signal": "others"}
+        ]
+      },
+  
+      {
+        "id": "Q8",
+        "type": "question",
+        "axis": "axis3",
+        "text": "What would make tomorrow meaningful?",
+        "options": [
+          {"label": "Less stress for me", "next": "Q9", "signal": "self"},
+          {"label": "Progress for the team", "next": "Q9", "signal": "others"},
+          {"label": "Helping someone succeed", "next": "Q9", "signal": "others"},
+          {"label": "Better customer outcome", "next": "Q9", "signal": "others"}
+        ]
+      },
+  
+      {
+        "id": "Q9",
+        "type": "question",
+        "axis": "axis3",
+        "text": "Which sentence feels wiser tonight?",
+        "options": [
+          {"label": "My problems are the whole picture", "next": "D3", "signal": "self"},
+          {"label": "My problems are real, but not the whole picture", "next": "D3", "signal": "others"},
+          {"label": "Meaning grows when the circle widens", "next": "D3", "signal": "others"}
+        ]
+      },
+  
+      {
+        "id": "D3",
+        "type": "decision",
+        "logic": "if others >= self then R3_OTH else R3_SELF"
+      },
+  
+      {
+        "id": "R3_OTH",
+        "type": "reflection",
+        "text": "You widened your radius today. Meaning often enters through contribution to something beyond self.",
+        "next": "D_SUMMARY"
+      },
+  
+      {
+        "id": "R3_SELF",
+        "type": "reflection",
+        "text": "Pressure narrows attention. That is normal. But narrow focus can feel true while being incomplete.",
+        "next": "D_SUMMARY"
+      },
+  
+      {
+        "id": "D_SUMMARY",
+        "type": "decision",
+        "logic": "if internal>=external and contribution>=entitlement and others>=self then SUMMARY_HIGH else if internal<external and contribution<entitlement and others<self then SUMMARY_LOW else SUMMARY_MIXED"
+      },
+  
+      {
+        "id": "SUMMARY_HIGH",
+        "type": "summary",
+        "text": "Tonight's pattern: agency, contribution, perspective. You are already building tomorrow through today's choices.",
+        "next": "END"
+      },
+  
+      {
+        "id": "SUMMARY_LOW",
+        "type": "summary",
+        "text": "Tonight's pattern: pressure, unmet expectations, narrowed focus. Useful to notice. Tomorrow can change with one owned action.",
+        "next": "END"
+      },
+  
+      {
+        "id": "SUMMARY_MIXED",
+        "type": "summary",
+        "text": "Tonight's pattern was mixed, like most real days. Some moments were reactive. Some were intentional. Build from the intentional ones.",
+        "next": "END"
+      },
+  
+      {
+        "id": "END",
+        "type": "end",
+        "text": "Session complete. See you tomorrow."
+      }
+  
+    ]
+  }
