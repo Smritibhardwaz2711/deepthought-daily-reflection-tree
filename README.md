@@ -3,9 +3,9 @@
 ![Deterministic](https://img.shields.io/badge/AI-Deterministic-success)
 ![CLI](https://img.shields.io/badge/UI-CLI-black)
 ![JSON](https://img.shields.io/badge/Data-JSON-orange)
-Python | Deterministic AI | JSON Tree | CLI App
 
-A deterministic reflection agent built for the DeepThought Fellowship Assignment.
+![Output](https://github.com/Smritibhardwaz2711/deepthought-daily-reflection-tree/blob/main/OUTput%20(deepthought-daily-reflection-tree).png?raw=true)
+A deterministic reflection agent built for the DeepThought Fellowship Assignment)
 
 This project converts psychological insight into a structured, auditable decision-tree product.
 
