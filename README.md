@@ -4,7 +4,7 @@
 ![CLI](https://img.shields.io/badge/UI-CLI-black)
 ![JSON](https://img.shields.io/badge/Data-JSON-orange)
 
-![Output](https://github.com/Smritibhardwaz2711/deepthought-daily-reflection-tree/blob/main/OUTput%20(deepthought-daily-reflection-tree).png?raw=true)
+![Output](https://raw.githubusercontent.com/Smritibhardwaz2711/deepthought-daily-reflection-tree/main/output/reflection-output.png.png)
 A deterministic reflection agent built for the DeepThought Fellowship Assignment)
 
 This project converts psychological insight into a structured, auditable decision-tree product.
